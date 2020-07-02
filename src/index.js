@@ -7,6 +7,7 @@ const User = require("./models/user");
 
 // Import Routes
 const signupRoute = require("./routes/signup");
+const loginRoute = require("./routes/login");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(signupRoute);
+app.use("/login", loginRoute);
 
 // App connection
 app.listen(port, () => {
