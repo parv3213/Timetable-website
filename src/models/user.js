@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -11,13 +11,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+// FIXME Not required, as of now
 function validate(user) {
-    const schema = {
+	const schema = {
 		name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        rno: Joi.number().min(1).required()
-    };
-    return Joi.validate(user, schema);
+		email: Joi.string().required().email(),
+		rno: Joi.number().min(1).required(),
+	};
+	return Joi.validate(user, schema);
 }
 
 exports.User = User;
