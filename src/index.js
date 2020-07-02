@@ -15,6 +15,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(signupRoute);
+app.use(loginRoute);
 
 // App connection
 app.listen(port, () => {
