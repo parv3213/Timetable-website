@@ -7,10 +7,10 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    const { error } = validate(req.body);
-    if (error) {   //400 - bad request
-        return res.status(400).send(error.details[0].message);
-    }
+    // const { error } = validate(req.body);
+    // if (error) {   //400 - bad request
+    //     return res.status(400).send(error.details[0].message);
+    // }
     User.findOne({email: req.body.email}, (err, data) => {
         if(data) {
             if(data.rno == req.body.rno) {
