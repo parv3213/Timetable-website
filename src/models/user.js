@@ -15,7 +15,7 @@ function validate(user) {
     const schema = {
 		name: Joi.string().required(),
         email: Joi.string().required().email(),
-        rno: Joi.number().min(14).required()
+        rno: Joi.number().min(1).required()
     };
     return Joi.validate(user, schema);
 }
