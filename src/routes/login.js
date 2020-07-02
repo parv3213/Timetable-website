@@ -1,6 +1,5 @@
 const express = require("express");
-const Joi = require("joi");
-const User = require("../models/user");
+const { User, validate } = require("../models/user");
 const router = new express.Router();
 
 router.get("/login", (req, res) => {
@@ -23,13 +22,5 @@ router.post("/login", async (req, res) => {
     });
     
 });
-
-function validate(user) {
-    const schema = {
-        email: Joi.string().required().email(),
-        rno: Joi.number().min(14).required()
-    };
-    return Joi.validate(user, schema);
-}
 
 module.export = router;
