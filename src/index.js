@@ -15,7 +15,6 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(signupRoute);
-app.use(loginRoute); //TODO Made change here
 
 // App connection
 app.listen(port, () => {
