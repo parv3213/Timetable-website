@@ -6,7 +6,7 @@ router.get("/login", (req, res) => {
     res.send("Please login"); // UI to be added
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", (req, res) => {
     const { error } = validate(req.body);
     if (error) {   //400 - bad request
         return res.status(400).send(error.details[0].message);
@@ -23,4 +23,4 @@ router.post("/login", async (req, res) => {
     
 });
 
-module.export = router;
+module.exports = router;
