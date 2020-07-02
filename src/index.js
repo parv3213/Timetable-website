@@ -3,7 +3,7 @@ const express = require("express");
 require("./db/mongoose");
 
 // Import Models
-const User = require("./models/user");
+// const User = require("./models/user"); //Not required
 
 // Import Routes
 const signupRoute = require("./routes/signup");
@@ -15,7 +15,6 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(signupRoute);
-app.use("/login", loginRoute);
 
 // App connection
 app.listen(port, () => {
