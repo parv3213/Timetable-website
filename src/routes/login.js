@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const router = new express.Router();
 
@@ -12,7 +13,17 @@ router.post("/login", async (req, res) => {
 		if (!user) {
 			throw new Error("Unable to login");
 		}
-		res.send(user);
+		bcrypt.compare(req.body.password, user.password, (err, result) => {
+			if(err) {
+				throw new Error("Unable to login");
+			}
+			if(result) {
+				res.send("Login successful!");
+			}else {
+				res.send("Unable to login");
+			}
+		});
+	
 	} catch (e) {
 		res.status(400).send(e.message);
 	}
