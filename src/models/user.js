@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
 		},
 	},
 	rno: { type: Number, required: true },
+	password: { type: String, required: true },
+	confpass: { type: String, required: true },
 	coreMember: { type: Boolean, default: false },
 });
 
