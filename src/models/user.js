@@ -1,25 +1,23 @@
-const Joi = require("joi");
 const mongoose = require("mongoose");
+const validator = require("validator");
+// FIXME Removed Joi and added validator (remove comment after you see it)
 
 const userSchema = new mongoose.Schema({
 	//TODO set password using jwt
 	name: { type: String, required: true },
-	email: { type: String, required: true },
+	email: {
+		type: String,
+		required: true,
+		validate(value) {
+			if (!validator.isEmail(value)) {
+				throw new Error("Email is invalid");
+			}
+		},
+	},
 	rno: { type: Number, required: true },
 	coreMember: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("User", userSchema);
 
-// FIXME Not required, as of now
-function validate(user) {
-	const schema = {
-		name: Joi.string().required(),
-		email: Joi.string().required().email(),
-		rno: Joi.number().min(1).required(),
-	};
-	return Joi.validate(user, schema);
-}
-
-exports.User = User;
-exports.validate = validate;
+module.exports = User;
