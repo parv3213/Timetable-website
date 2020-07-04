@@ -1,6 +1,7 @@
 // Import Packages
 const express = require("express");
 const ejs = require("ejs");
+const bodyParser = require("body-parser");
 require("./db/mongoose");
 
 // Import Routes
@@ -15,6 +16,7 @@ const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(signupRoute);
 app.use(loginRoute);
 app.use(rootRoute);
