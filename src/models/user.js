@@ -48,7 +48,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 // Generate Auth tokens
 userSchema.methods.generateAuthTokens = async function () {
 	const user = this;
-	const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY);
+	const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY, { expiresIn: "5h" });
 	user.tokens = user.tokens.concat({ token });
 	await user.save();
 	return token;
