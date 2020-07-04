@@ -1,6 +1,4 @@
-require("dotenv").config({ path: "./src/config/.env" });
 const express = require("express");
-const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const router = new express.Router();
 
