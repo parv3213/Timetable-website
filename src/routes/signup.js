@@ -7,7 +7,7 @@ const router = new express.Router();
 router.get("/signup", (req, res) => {
 	res.send("HI"); //TODO We will add the ui page here
 });
-
+//FIXME generate auth token on signup
 router.post("/signup", async (req, res) => {
 	try {
 		let user = await User.findOne({ email: req.body.email });
