@@ -16,32 +16,6 @@ router.post("/signup", async (req, res) => {
 	} catch (e) {
 		res.status(400).send({ e: e.message });
 	}
-	// FIXME understand the above code and then delete this and below comments
-	// User.findOne({ email: req.body.email }, (err, data) => {
-	// 	if (!data) {
-	// 		bcrypt.hash(req.body.password, 10, async (err, hash) => {
-	// 			if (err) {
-	// 				return res.status(500).json({ error: err });
-	// 			} else {
-	// 				const user = new User({
-	// 					name: req.body.name,
-	// 					email: req.body.email,
-	// 					rno: req.body.rno,
-	// 					password: hash,
-	// 				});
-
-	// 				try {
-	// 					await user.save();
-	// 					res.status(201).send(user);
-	// 				} catch (e) {
-	// 					res.status(500).send(e.message);
-	// 				}
-	// 			}
-	// 		});
-	// 	} else {
-	// 		res.send("Email already in use");
-	// 	}
-	// });
 });
 
 module.exports = router;
