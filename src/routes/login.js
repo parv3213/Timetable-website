@@ -3,7 +3,7 @@ const User = require("../models/user");
 const router = new express.Router();
 
 router.get("/login", (req, res) => {
-	res.send("Please login"); // TODO UI to be added
+	res.render("pages/login.ejs");
 });
 
 router.post("/login", async (req, res) => {
