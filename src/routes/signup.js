@@ -5,7 +5,7 @@ const User = require("../models/user");
 const router = new express.Router();
 
 router.get("/signup", (req, res) => {
-	res.send("HI"); //TODO We will add the ui page here
+	res.render("pages/signup"); //TODO We will add the ui page here
 });
 
 router.post("/signup", async (req, res) => {

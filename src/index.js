@@ -1,9 +1,7 @@
 // Import Packages
 const express = require("express");
+const ejs = require("ejs");
 require("./db/mongoose");
-
-// Import Models
-// const User = require("./models/user"); //Not required
 
 // Import Routes
 const signupRoute = require("./routes/signup");
@@ -14,6 +12,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(signupRoute);
 app.use(loginRoute);
