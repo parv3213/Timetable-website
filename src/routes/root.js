@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 // });
 
 router.post("/", auth, (req, res) => {
-	res.send("JWT Success!");
+	res.send({ message: "JWT Success!", user: req.user, token: req.token });
 });
 
 module.exports = router;

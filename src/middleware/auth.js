@@ -1,19 +1,20 @@
+require("dotenv").config({ path: "./src/config/.env" });
 const jwt = require("jsonwebtoken");
-const jwtKey = "secret"
+const User = require("../models/user");
+const jwtKey = process.env.JWT_KEY;
 
-function auth(req, res, next) {
-    const token = req.body.token || req.headers.authorization;
-    if(!token) return res.status(401).send("Access denied as no token is provided");
-    try {
-        const decoded = jwt.verify(token, jwtKey);
-        req.userData = decoded;
-        next();
-    }
-    catch(err) {
-        res.status(400).send("Invalid token");
-    }
-    
-}
-
+const auth = async (req, res, next) => {
+	try {
+		const token = req.header("Authorization").replace("Bearer ", "");
+		const decoded = jwt.verify(token, jwtKey);
+		const user = await User.findOne({ _id: decoded._id, "tokens.token": token });
+		if (!user) throw new Error();
+		req.token = token;
+		req.user = user;
+		next();
+	} catch (e) {
+		res.status(400).send({ e: "No or Invalid token" });
+	}
+};
 
 module.exports = auth;

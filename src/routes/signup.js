@@ -7,16 +7,16 @@ const router = new express.Router();
 router.get("/signup", (req, res) => {
 	res.send("HI"); //TODO We will add the ui page here
 });
-//FIXME generate auth token on signup
+
 router.post("/signup", async (req, res) => {
 	try {
 		let user = await User.findOne({ email: req.body.email });
 		if (user) throw new Error("Email Id already exists");
 		user = new User(req.body);
-		await user.save();
-		res.send(user);
+		const token = await user.generateAuthToken();
+		res.status(201).send({ message: "Signin successful", user, token });
 	} catch (e) {
-		res.status(500).send({ e: e.message }); //FIXME correct the status code
+		res.status(400).send({ e: e.message });
 	}
 	// FIXME understand the above code and then delete this and below comments
 	// User.findOne({ email: req.body.email }, (err, data) => {
