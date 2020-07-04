@@ -3,7 +3,7 @@ const User = require("../models/user");
 const router = new express.Router();
 
 router.get("/signup", (req, res) => {
-	res.render("pages/signup"); //TODO We will add the ui page here
+	res.render("pages/signup");
 });
 
 router.post("/signup", async (req, res) => {

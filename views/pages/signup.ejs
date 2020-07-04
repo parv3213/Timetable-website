@@ -7,9 +7,26 @@
 </head>
 
 <body>
-  <%- include("../partials/navbar.ejs")  %>
-  <h1>This is the signup page</h1>
-  <%- include("../partials/footer.ejs")  %>
+  <div id="container">
+    <div id="body">
+      <%- include("../partials/navbar.ejs")  %>
+      <div class="">
+        <form class="signupBox">
+
+          <h1 class="h3 mb-3 mx-auto text-center">Please sign in</h1>
+          <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+          <input type="text" id="inputRno" class="form-control" placeholder="Enrollment Number" required>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+          <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+          <!-- <div class="checkbox mb-3"><label><input type="checkbox" value="remember-me"> Remember me</label></div> -->
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
+
+        </form>
+      </div>
+    </div>
+    <%- include("../partials/footer.ejs")  %>
+  </div>
 </body>
 
 </html>

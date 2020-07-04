@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-	
+
 const userSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	email: {
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 			}
 		},
 	},
-	rno: { type: Number, required: true },
+	rno: { type: String, required: true },
 	password: { type: String, required: true },
 	coreMember: { type: Boolean, default: false },
 	tokens: [
