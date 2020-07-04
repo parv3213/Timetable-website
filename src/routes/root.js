@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 	if (req.query.year) {
 		return res.send(req.query.year);
 	}
-	res.send("Welcome to / route");
+	res.render("pages/index.ejs");
 });
 
 // router.post("/", (req, res) => {
