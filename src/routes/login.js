@@ -13,7 +13,7 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
 	try {
 		const user = await User.findByCredentials(req.body.email, req.body.password);
-		const token = await user.generateAuthTokens();
+		const token = await user.generateAuthToken();
 		res.send({ message: "Login Successfull! Token Generated", user, token });
 
 		// Check, compare, understand and delete the comments
