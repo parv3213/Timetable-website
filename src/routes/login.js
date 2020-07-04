@@ -1,10 +1,7 @@
 // const config = require("../config/custom-environment-variables.json");
 const express = require("express");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const router = new express.Router();
-const jwtKey = "secret";
 
 router.get("/login", (req, res) => {
 	res.send("Please login"); // TODO UI to be added
