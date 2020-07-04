@@ -10,7 +10,13 @@ router.post("/signup", async (req, res) => {
 	try {
 		let user = await User.findOne({ email: req.body.email });
 		if (user) throw new Error("Email Id already exists");
-		user = new User(req.body);
+		user = new User({
+			name: req.body.name,
+			rno: req.body.rno,
+			email: req.body.email,
+			password: req.body.password,
+		});
+
 		const token = await user.generateAuthToken();
 		res.status(201).send({ message: "Signin successful", user, token });
 	} catch (e) {

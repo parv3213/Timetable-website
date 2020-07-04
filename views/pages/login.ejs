@@ -10,18 +10,14 @@
   <div id="container">
     <div id="body">
       <%- include("../partials/navbar.ejs")  %>
-      <div class="">
-        <form class="signupBox">
+      <form class="signupBox" method="POST" action="/login">
 
-          <h1 class="h3 mb-3 mx-auto text-center">Login</h1>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-          <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
-          <!-- <div class="checkbox mb-3"><label><input type="checkbox" value="remember-me"> Remember me</label></div> -->
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-          <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p> -->
+        <h1 class="h3 mb-3 mx-auto text-center">Login</h1>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 
-        </form>
-      </div>
+      </form>
     </div>
     <%- include("../partials/footer.ejs")  %>
   </div>
