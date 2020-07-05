@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
 		const token = req.header("Authorization").replace("Bearer ", "");
 		const decoded = jwt.verify(token, jwtKey);
 		const user = await User.findOne({ _id: decoded._id, "tokens.token": token });
-		if (!user) throw new Error();
+		if (!user) throw new Error("User does not exists");
 		req.token = token;
 		req.user = user;
 		next();
