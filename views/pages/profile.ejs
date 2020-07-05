@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <%- include("../partials/head.ejs") -%>
+</head>
+
+<body>
+  <div id="container">
+    <div id="body">
+      <%- include("../partials/navbar.ejs")  %>
+      <div class="mx-5 my-5">
+        <h1 class="h3">Update your information</h1>
+        <!-- Name -->
+        <form action="/user/profile" method="POST" class="">
+          <div class="form-section py-3 px-3">
+            <label for="inputName" class="h5 mr-3">Full Name:</label>
+            <input type="text" name="name" id="inputName" placeholder="Full Name" class="form-control w-25 h-25">
+            <!-- Year -->
+            <!-- //TODO make it selection -->
+            <div class="d-inline mx-5">
+              <label for="inputYear" class="h5 mr-3">Year:</label>
+              <input type="text" name="year" id="inputYear" placeholder="Year" class="form-control w-25 h-25">
+            </div>
+          </div>
+          <!-- Password -->
+          <!-- //TODO add dom js -->
+          <div class="form-section py-3 px-3">
+            <label for="inputPassword" class="h5 mr-3">New Password:</label>
+            <input type="text" name="password" id="inputPassword" placeholder="New Password" class="form-control w-25 h-25">
+          </div>
+          <button class="btn btn-outline-light ml-3 my-3 px-3" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <%- include("../partials/footer.ejs")  %>
+  </div>
+</body>
+
+</html>

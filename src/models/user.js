@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
 	rno: { type: String, required: true },
 	password: { type: String, required: true },
 	coreMember: { type: Boolean, default: false },
-	year: { type: Number, required: true }, //TODO add year proc in signup page //TODO add validation
+	year: { type: Number, required: true }, //TODO add validation
 
 	tokens: [
 		{
