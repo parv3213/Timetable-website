@@ -15,6 +15,7 @@ router.post("/signup", async (req, res) => {
 			rno: req.body.rno,
 			email: req.body.email,
 			password: req.body.password,
+			year: req.body.year,
 		});
 
 		const token = await user.generateAuthToken();
